@@ -199,13 +199,13 @@
   .hero-name .accent { color:var(--teal2); }
   .hero-name .gold   { color:var(--gold); }
   .hero-profession {
-    font-family: var(--ff-head);
-    font-size: clamp(0.95rem, 2vw, 1.2rem);
-    font-weight: 700;
+    font-family: var(--ff-body);
+    font-size: clamp(0.78rem, 1.6vw, 0.95rem);
+    font-weight: 500;
     color: var(--gold);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-top: 0.6rem;
+    letter-spacing: 0.03em;
+    margin-top: 0.8rem;
+    line-height: 1.6;
     animation: fadeUp 0.6s 0.15s ease both;
   }
 
@@ -551,7 +551,7 @@
     <h1 class="hero-name">
       Muhammad <span class="accent">Ahmad</span> <span class="gold">Janjua</span>
     </h1>
-    <p class="hero-profession">Aspiring Software Developer</p>
+    <p class="hero-profession">CS Student at NUML &nbsp;|&nbsp; Junior Software Developer &nbsp;|&nbsp; Java &bull; C++ &bull; C# &bull; HTML &bull; CSS &bull; JavaScript</p>
     <p class="hero-sub">
       Computer Science student at NUML University, Lahore.
       Building with C#, Java, Web Dev &amp; AI.
@@ -630,21 +630,14 @@
       <div class="skill-group-title">
         <div class="icon">💻</div> Programming Languages
       </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>C# / .NET</span><span>60%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>Java – OOP</span><span>65%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="65"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>C++ – DSA</span><span>60%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>C Programming</span><span>70%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70"></div></div>
+      <div class="skill-tag-grid">
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">OOP</span>
+        <span class="skill-tag">DSA</span>
+        <span class="skill-tag">.NET</span>
       </div>
     </div>
 
@@ -652,17 +645,11 @@
       <div class="skill-group-title">
         <div class="icon">🌐</div> Web Development
       </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>HTML / CSS</span><span>72%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="72"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>JavaScript</span><span>35%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="35"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>Next.js</span><span>20%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="20"></div></div>
+      <div class="skill-tag-grid">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Responsive Design</span>
       </div>
     </div>
 
@@ -670,17 +657,12 @@
       <div class="skill-group-title">
         <div class="icon">🛠️</div> Tools & Concepts
       </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>MS Office Suite</span><span>75%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>Git / Version Control</span><span>40%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="40"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-row"><span>Visual Studio / VS Code</span><span>70%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70"></div></div>
+      <div class="skill-tag-grid">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">Visual Studio</span>
+        <span class="skill-tag">MS Office</span>
+        <span class="skill-tag">JupyterLab</span>
       </div>
     </div>
 
@@ -753,10 +735,10 @@
     <div class="project-card" style="border-style:dashed; opacity:0.6;">
       <span class="project-tag">Coming Soon</span>
       <div class="project-title">Next Project in Progress</div>
-      <p class="project-desc">Currently focused on finals. Next project starts post-exams — likely a full-stack web application using Next.js and C# backend to build something real for internship applications.</p>
+      <p class="project-desc">Currently building real-world projects with AI integration and web development. Something worth showing will be here soon.</p>
       <div class="project-techs">
-        <span class="tech-pill">Next.js</span>
         <span class="tech-pill">C#</span>
+        <span class="tech-pill">JavaScript</span>
         <span class="tech-pill">In Progress</span>
       </div>
     </div>
@@ -873,18 +855,7 @@
   }, { threshold:0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  /* ── SKILL BARS ─────────────────────────────────────────────────────── */
-  const barObserver = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.querySelectorAll('.skill-bar-fill').forEach(bar=>{
-          bar.style.width = bar.dataset.width + '%';
-        });
-        barObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold:0.3 });
-  document.querySelectorAll('.skill-group').forEach(g => barObserver.observe(g));
+  /* skill bars removed */
 
   /* ── SMOOTH NAV CLICK ───────────────────────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
